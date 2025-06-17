@@ -36,6 +36,7 @@ ZZZZZZZZZZZZZZZZZZZ  aaaaaaaaaa  aaaap::::::pppppppp    hhhhhhh     hhhhhhh   y:
     - Networking
     - Components
     - Wally release (probably AFTER networking. I just really like pesde right now lol)
+    
 
     Libraries for Zaphy that will exist, but will not be included in its core:
 
