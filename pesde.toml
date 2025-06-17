@@ -1,10 +1,22 @@
 name = "froststarinteractive/zaphy_core"
-version = "0.1.0"
+description = """
+Game Framework for roblox.
+"""
+version = "3.0.0"
+repository = "https://github.com/froststarinteractive/zaphy"
 authors = ["ivadsiuls"]
 license = "MIT"
+includes = [
+    "pesde.toml",
+    "src/init.luau",
+    "README.md",
+    "LICENSE"
+]
 
 [target]
 environment = "roblox"
+lib = "src/init.luau"
+build_files = ["src"]
 
 [indices]
 default = "https://github.com/pesde-pkg/index"
