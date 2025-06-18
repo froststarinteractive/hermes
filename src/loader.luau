@@ -62,7 +62,7 @@ function loader.Add(self: loader, modules: {ModuleScript})
 end
 
 -- Starts Hermes and all the modules in its cache.
-function loader.Zap(self: loader)
+function loader.Fly(self: loader)
     --[[
         This is where we added all the modules in the cache to the providers cache
             and call the "Init" function on all of them.

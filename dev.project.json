@@ -1,12 +1,12 @@
 {
-  "name": "ZaphyRewrite",
+  "name": "HermesRewrite",
   "tree": {
     "$className": "DataModel",
 
     "ReplicatedStorage": {
       "Packages": {
         "$className": "Folder",
-        "Zaphy": {
+        "Hermes": {
           "$path": "src"
         }
       }

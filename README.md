@@ -1,6 +1,6 @@
-# Zaphy
-3.0.0
+# Hermes
+0.1.0
 
-Rewrite of Zaphy.
+Spiritual successor to Zaphy
 
 https://zaphy.luau.page
