@@ -1,9 +1,9 @@
-name = "froststarinteractive/zaphy_core"
+name = "froststarinteractive/hermes_core"
 description = """
-Game Framework for roblox.
+Game Framework for Roblox.
 """
-version = "3.0.0"
-repository = "https://github.com/froststarinteractive/zaphy"
+version = "0.1.0"
+repository = "https://github.com/froststarinteractive/hermes"
 authors = ["ivadsiuls"]
 license = "MIT"
 includes = [
