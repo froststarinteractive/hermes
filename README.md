@@ -1,10 +1,7 @@
 <div align="center">
     <img src="assets/icon.png" alt="Hermes Icon">
 
-    # Hermes
+    <h1>v0.1.0</h1>
 </div>
-
-# Hermes
-0.1.0
 
 https://zaphy.luau.page
