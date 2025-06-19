@@ -37,7 +37,10 @@
 local CollectionService = game:GetService("CollectionService")
 local RunService = game:GetService("RunService")
 
+local modding = require("./modding")
+
 local component = {}
+component.__index = component
 
 export type component = typeof(component)
 
@@ -65,15 +68,22 @@ function component.new(tag: string)
 
 	comp.Tag = tag
 
-	return comp :: Component
+	setmetatable(comp, component)
+	modding.ComponentRegistered:Fire(comp)
+
+	return comp
 end
 
 -- Calls a component's "Construct" function, if it exists, also sets the "component.Instance" property.
-local function constructComponent(comp: Component, instance: Instance)
+function component._construct(self: component, instance: Instance)
+	local comp = setmetatable({}, self)
+
 	comp.Instance = instance
 	if comp.Construct then
 		comp.Construct(comp)
 	end
+
+	return comp
 end
 
 -- Calls a component's "Start" function, if it exists
@@ -99,25 +109,37 @@ local function heartbeatComponent(comp: Component)
 	end
 end
 
--- Starts a component, connecting to all of the necessary events.
-function component.Start(comp: Component)
-	for _, instance in CollectionService:GetTagged(comp.Tag) do
-		constructComponent(comp, instance)
+function component.Fly(self: component & Component)
+	local instanceComponents = {}
+
+	local function createComponent(instance: Instance)
+		local comp = self:_construct(instance)
+		instanceComponents[instance] = comp
+
 		startComponent(comp)
-		print(instance)
+
+		heartbeatComponent(comp)
+
+		modding.ComponentInstanceCreated:Fire(comp, instance)
+
+		return comp
 	end
 
-	CollectionService:GetInstanceAddedSignal(comp.Tag):Connect(function(instance)
-		constructComponent(comp, instance)
-		startComponent(comp)
-	end)
-	CollectionService:GetInstanceRemovedSignal(comp.Tag):Connect(function(instance)
-		destroyComponent(comp, instance)
+	CollectionService:GetInstanceAddedSignal(self.Tag):Connect(function(instance)
+		createComponent(instance)
 	end)
 
-	heartbeatComponent(comp)
+	CollectionService:GetInstanceRemovedSignal(self.Tag):Connect(function(instance)
+		if instanceComponents[instance] then
+			destroyComponent(instanceComponents[instance], instance)
+		end
+	end)
 
-	return comp
+	for _, instance in CollectionService:GetTagged(self.Tag) do
+		createComponent(instance)
+	end
+
+	return self
 end
 
 return component

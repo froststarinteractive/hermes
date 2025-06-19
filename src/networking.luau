@@ -17,7 +17,12 @@ local function getRemote(name: string, type: RemoteType): RemoteEvent | RemoteFu
 	end
 
 	if isClient then
-		return script:WaitForChild(name)
+		local remote = script:WaitForChild(name, 15)
+
+		if not remote then
+			warn(`[C] [Hermes] Unable to find remote while waiting for over 15 seconds.`)
+		end
+		return remote
 	end
 
 	if type == "RemoteEvent" then

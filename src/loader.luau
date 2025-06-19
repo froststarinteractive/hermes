@@ -66,6 +66,13 @@ function loader.Register(self: loader, modules: { ModuleScript })
 	end
 end
 
+-- Requires a table of ModuleScripts
+function loader.RequireModules(self: loader, modules: { ModuleScript })
+	for _, module in modules do
+		require(module)
+	end
+end
+
 -- Starts Hermes and all the modules in its cache.
 function loader.Fly(self: loader)
 	--[[

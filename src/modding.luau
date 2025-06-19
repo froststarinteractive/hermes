@@ -1,11 +1,8 @@
 -- Hermes MODDING (v0.1.0)
 
 --[[
-    Modding is still a work-in-progress and I'll be
-    adding more utility functions to make your life easier
-    later on.
-
-    After registering mods, you'll have to re-require Hermes.
+    Modding is still a work-in-progress.
+    After registering mods, you'll have to join hermes with the mods.
 
     ```luau
         local Hermes = require("./Hermes")
@@ -14,8 +11,8 @@
             Hi = "Hello!"
         })
         
-        -- Require it again to register in the mods
-        Hermes = require("./Hermes")
+        -- Register in the mods
+        Hermes = Hermes:JoinWithMods()
 
         -- Output: Hello!
         print(Hermes.Hi)
@@ -31,6 +28,8 @@ local modding = {
 	StartedFlying = signal.new(),
 	ProviderRegistered = signal.new(),
 	ModRegistered = signal.new(),
+	ComponentRegistered = signal.new(),
+	ComponentInstanceCreated = signal.new(),
 }
 
 export type modding = typeof(modding)
