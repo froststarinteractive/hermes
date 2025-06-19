@@ -2,7 +2,7 @@
 <img src="https://github.com/froststarinteractive/hermes/blob/27358fea0293f602b065f5602dac0be4a4ac090f/assets/icon.svg?raw=true" alt="Icon"/>
 
 <h1><b>Game Framework</b></h1>
-<img alt="Version Number" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffroststarinteractive%2Fhermes%2Frefs%2Fheads%2Frewrite%2Fpesde.toml&query=%24.version&label=version">
+<img alt="Version Number" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffroststarinteractive%2Fhermes%2Frefs%2Fheads%2Fmain%2Fpesde.toml&query=%24.version&label=version">
 
 <img style="padding-top: 5px" alt="GitHub Downloads" src="https://img.shields.io/github/downloads/froststarinteractive/hermes/total">
 
