@@ -44,7 +44,7 @@ export default defineConfig({
 			}
 		},
 
-		logo: "/favicon.svg",
+		logo: "https://raw.githubusercontent.com/froststarinteractive/hermes/4b104048cea9a0fa721bd34031abf071fa462fb5/assets/favicon.svg",
 
     search: {
       provider: "local"
@@ -61,26 +61,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      "/api/": [
-         { text: "Server", collapsed: false, link: "/api/server/init", items: [
-          { text: "Types", collapsed: false, items: [
-            { text: "Service", link: "/api/server/types/service"},
-          ] },
-          { text: "Methods", collapsed: false, items: [
-            { text: "AddServices", link: "/api/server/functions/add-services"},
-            { text: "StartHermes", link: "/api/server/functions/start-Hermes"},
-            { text: "GetService", link: "/api/server/functions/get-service"},
-            { text: "GetServices", link: "/api/server/functions/get-services"},
-            { text: "TellClient", link: "/api/server/functions/tell-client"},
-            { text: "UnreliablyTellClient", link: "/api/server/functions/unreliably-tell-client"},
-            { text: "TellAllClients", link: "/api/server/functions/tell-all-clients"},
-            { text: "UnreliablyTellAllClients", link: "/api/server/functions/unreliably-tell-all-clients"},
-            { text: "ListenAskFromClient", link: "/api/server/functions/listen-ask-from-client"},
-            { text: "ListenUnreliableAskFromClient", link: "/api/server/functions/listen-unreliable-ask-from-client"},
-          ] },
-         ] },
-         { text: "Client", collapsed: false, link: "/api/client/init"}
-      ]
+      "/api/": []
   },
 
     socialLinks: [

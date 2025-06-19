@@ -7,7 +7,7 @@ hero:
   text: "Hermes is a game framework for Roblox."
   tagline: Making games <u>shouldn't</u> be <i>hard</i>.
   image:
-    src: /assets/favicon.svg
+    src: https://raw.githubusercontent.com/froststarinteractive/hermes/4b104048cea9a0fa721bd34031abf071fa462fb5/assets/favicon.svg
   actions:
     - theme: brand
       text: Getting Started

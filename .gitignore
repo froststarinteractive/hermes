@@ -11,3 +11,10 @@
 # Vitepress
 /docs/.vitepress/dist
 /docs/.vitepress/cache
+
+# Pesde
+/luau_packages
+/lune_packages
+
+# Selene
+/roblox.yml

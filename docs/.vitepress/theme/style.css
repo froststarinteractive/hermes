@@ -163,6 +163,11 @@ div[class*="language-"] {
 	height: 100%;
 }
 
+.VPImage {
+  width: 300%; 
+  height: 300%;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
