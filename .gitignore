@@ -5,5 +5,9 @@
 /*.rbxlx.lock
 /*.rbxl.lock
 
-# Node modules
+# Node
 /node_modules
+
+# Vitepress
+/docs/.vitepress/dist
+/docs/.vitepress/cache

@@ -1,0 +1,31 @@
+{
+  "name": "hermes",
+  "version": "0.1.0",
+  "description": "Game framework for Roblox",
+  "homepage": "https://github.com/froststarinteractive/zaphy#readme",
+  "bugs": {
+    "url": "https://github.com/froststarinteractive/zaphy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/froststarinteractive/zaphy.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "@nolebase/vitepress-plugin-highlight-targeted-heading": "^2.17.2",
+    "vitepress-plugin-tabs": "^0.7.1",
+    "vitepress-theme-api": "^0.1.7"
+  }
+}

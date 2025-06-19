@@ -5,4 +5,4 @@
     <img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/froststarinteractive/hermes/total">
 </div>
 
-https://zaphy.luau.page
+https://hermes.luau.page

@@ -2,8 +2,11 @@
     "luau-lsp.sourcemap.rojoProjectFile": "dev.project.json",
     "cSpell.words": [
         "aaaap",
+        "catppuccin",
         "eventhandlerutils",
-        "prvdmwrong"
+        "nolebase",
+        "prvdmwrong",
+        "vitepress"
     ],
 
     "editor.defaultFormatter": "JohnnyMorganz.stylua",

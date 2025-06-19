@@ -67,7 +67,7 @@ function loader.Register(self: loader, modules: { ModuleScript })
 end
 
 -- Requires a table of ModuleScripts
-function loader.RequireModules(self: loader, modules: { ModuleScript })
+function loader.RequireModules(_self: loader, modules: { ModuleScript })
 	for _, module in modules do
 		require(module)
 	end

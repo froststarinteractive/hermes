@@ -8,7 +8,7 @@ authors = ["ivadsiuls"]
 license = "MIT"
 includes = [
     "pesde.toml",
-    "src/init.luau",
+    "src/*",
     "README.md",
     "LICENSE"
 ]
