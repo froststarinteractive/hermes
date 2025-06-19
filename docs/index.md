@@ -20,8 +20,6 @@ features:
   - title: Lightweight
     details: extremely lightweight, only including things we know you will need.
   - title: Easy Communication
-    details: provides easy-to-use functions for communicating between the server and client.
-  - title: Pre-bundled packages
     details: includes packages that most devs need, without being bloated.
   - title: By creators, for creators
     details: was built with the purpose of being the core of Froststar Interactive's games.
