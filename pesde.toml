@@ -1,4 +1,4 @@
-name = "froststarinteractive/hermes_core"
+name = "hermes/core"
 description = """
 Game Framework for Roblox.
 """

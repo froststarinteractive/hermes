@@ -1,6 +1,11 @@
 {
     "luau-lsp.sourcemap.rojoProjectFile": "dev.project.json",
     "cSpell.words": [
-        "aaaap"
-    ]
+        "aaaap",
+        "eventhandlerutils",
+        "prvdmwrong"
+    ],
+
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.formatOnSave": true
 }
