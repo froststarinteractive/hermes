@@ -21,7 +21,7 @@ export default defineConfig({
   },
 
   head: [
-		['link', { rel: 'icon', href: '/favicon.svg' }]
+		['link', { rel: 'icon', href: "https://raw.githubusercontent.com/froststarinteractive/hermes/e1545925d4dae0f904fb02a1c28516131f448fb6/assets/favicon-simplified.svg" }]
 	],
 
   markdown: {
