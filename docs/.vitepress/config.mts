@@ -44,7 +44,7 @@ export default defineConfig({
 			}
 		},
 
-		logo: "https://raw.githubusercontent.com/froststarinteractive/hermes/4b104048cea9a0fa721bd34031abf071fa462fb5/assets/favicon.svg",
+		logo: "https://raw.githubusercontent.com/froststarinteractive/hermes/e1545925d4dae0f904fb02a1c28516131f448fb6/assets/favicon-simplified.svg",
 
     search: {
       provider: "local"
