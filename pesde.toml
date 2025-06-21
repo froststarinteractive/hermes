@@ -2,7 +2,7 @@ name = "hermes/core"
 description = """
 Game Framework for Roblox.
 """
-version = "0.1.2"
+version = "0.1.3"
 repository = "https://github.com/froststarinteractive/hermes"
 authors = ["ivadsiuls"]
 license = "MIT"
