@@ -2,13 +2,15 @@ name = "hermes/core"
 description = """
 Game Framework for Roblox.
 """
-version = "0.1.0"
+version = "0.1.2"
 repository = "https://github.com/froststarinteractive/hermes"
 authors = ["ivadsiuls"]
 license = "MIT"
 includes = [
     "pesde.toml",
     "src/*",
+    "src/utils/*",
+    "src/utils/signal/*",
     "README.md",
     "LICENSE"
 ]
@@ -16,7 +18,7 @@ includes = [
 [target]
 environment = "roblox"
 lib = "src/init.luau"
-build_files = ["src"]
+build_files = ["src", "src/utils", "src/utils/signal"]
 
 [indices]
 default = "https://github.com/pesde-pkg/index"

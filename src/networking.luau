@@ -1,4 +1,4 @@
--- Hermes NETWORKING (v0.1.0)
+-- Hermes NETWORKING (v0.1.2)
 
 local RunService = game:GetService("RunService")
 local isClient = RunService:IsClient()
@@ -103,6 +103,18 @@ function networking.ListenToTell(
 		return remote.OnClientEvent:Connect(callback)
 	else
 		return remote.OnServerEvent:Connect(callback)
+	end
+end
+
+--[[ WAITING FOR REMOTES ]]
+
+function networking.Wait(_self: networking, name: string)
+	local remote = getRemote(name, "RemoteEvent") :: RemoteEvent
+
+	if isClient then
+		remote.OnClientEvent:Wait()
+	else
+		remote.OnServerEvent:Wait()
 	end
 end
 
