@@ -106,21 +106,21 @@ function loader.Fly(self: loader)
 		end
 
 		if prov.Heartbeat then
-			RunService.Heartbeat:Connect(function()
-				prov:Heartbeat()
+			RunService.Heartbeat:Connect(function(dt)
+				prov:Heartbeat(dt)
 			end)
 		end
 
 		if isClient then
 			if prov.PreRender then
-				RunService.PreRender:Connect(function()
-					prov:PreRender()
+				RunService.PreRender:Connect(function(dt)
+					prov:PreRender(dt)
 				end)
 			end
 
 			if prov.PreSimulation then
-				RunService.PreSimulation:Connect(function()
-					prov:PreSimulation()
+				RunService.PreSimulation:Connect(function(dt)
+					prov:PreSimulation(dt)
 				end)
 			end
 		end
