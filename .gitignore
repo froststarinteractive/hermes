@@ -1,12 +1,16 @@
 # Project place file
 /hermes.rbxlx
 
+# Rojo
+/sourcemap.json
+
 # Roblox Studio lock files
 /*.rbxlx.lock
 /*.rbxl.lock
 
 # Node
 /node_modules
+/package-lock.json
 
 # Vitepress
 /docs/.vitepress/dist
@@ -15,6 +19,10 @@
 # Pesde
 /luau_packages
 /lune_packages
+/pesde.lock
 
 # Selene
 /roblox.yml
+
+# Vscode config
+/.vscode
