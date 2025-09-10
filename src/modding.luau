@@ -40,8 +40,12 @@ export type Mod = {
 
 -- Registering a mod (basically a table) joins it with the main Hermes table, allowing you to do basically anything you want with it.
 function modding.RegisterMod(self: modding, mod: Mod)
+	assert(typeof(mod) == "table", "Invalid mod type.")
+
 	table.insert(self._mods, mod)
 	modding.ModRegistered:Fire()
+
+	self:_joinWithMods()
 end
 
 -- Internal use
@@ -49,22 +53,14 @@ function modding._getMods(self: modding): { Mod }
 	return self._mods
 end
 
--- Joins the Hermes table with the mods in the _mods cache. You should do this as: Hermes = Hermes:Join()
-function modding.JoinWithMods(self: modding)
-	local function joinMods()
-		local mods = {}
-
-		for _, mod in modding:_getMods() do
-			for key, modParam in mod do
-				mods[key] = modParam
-				print(mods)
-			end
+-- Joins the Hermes table with the mods in the _mods cache.
+function modding._joinWithMods(self: modding)
+	for _, mod in self:_getMods() do
+		for key, modParam in mod do
+			self[key] = modParam
 		end
-
-		return mods
 	end
-
-	return utils.joinTables(self, joinMods())
+	return self
 end
 
 return modding

@@ -57,6 +57,8 @@ export type Component = {
 	Destroy: (Component, Instance) -> ()?,
 
 	Heartbeat: (Component, number) -> ()?,
+
+	_construct: (Component, Instance) -> (),
 }
 
 function component.new(tag: string)
@@ -109,7 +111,7 @@ local function heartbeatComponent(comp: Component)
 	end
 end
 
-function component.Fly(self: component & Component)
+function component.Fly(self: Component)
 	local instanceComponents = {}
 
 	local function createComponent(instance: Instance)
@@ -142,4 +144,4 @@ function component.Fly(self: component & Component)
 	return self
 end
 
-return component
+return component :: component

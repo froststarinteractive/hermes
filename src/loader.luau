@@ -23,13 +23,13 @@ local RunService = game:GetService("RunService")
 local isClient = RunService:IsClient()
 
 local modding = require("./modding")
+local component = require("./component")
 
 local loader = {
 	_modules = {},
 	_providers = {},
 
-	Component = require("./component"),
-	Modding = modding,
+	Component = component,
 }
 
 export type loader = typeof(loader)
@@ -77,7 +77,9 @@ end
 function loader.Fly(self: loader)
 	--[[
         This is where we added all the modules in the cache to the providers cache
-            and call the "Init" function on all of them.
+        and call the "Init" function on all of them.
+
+		-- !DO NOT YIELD! --
     ]]
 	for _, module in self._modules :: { ModuleScript } do
 		local prov = require(module)
@@ -98,7 +100,9 @@ function loader.Fly(self: loader)
 
 	--[[
         This is where we call all the provider's "Start" function,
-            and connect the lifecycle methods as well.
+        and connect the lifecycle methods as well.
+
+		-- !DO NOT YIELD! --
     ]]
 	for _, prov in self._providers :: { [string]: Provider } do
 		if prov.Start then
@@ -130,7 +134,7 @@ function loader.Fly(self: loader)
 	modding.Flying = true
 end
 
--- Get a provider from Hermes's provider cache. Returns nil if it was not found.
+-- Gets a provider from Hermes's provider cache. Returns nil if it was not found.
 function loader.Use(self: loader, name: string): Provider?
 	return self._providers[name]
 end

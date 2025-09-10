@@ -2,9 +2,10 @@
 <img src="https://github.com/froststarinteractive/hermes/blob/27358fea0293f602b065f5602dac0be4a4ac090f/assets/icon.svg?raw=true" alt="Icon"/>
 
 <h1><b>Game Framework</b></h1>
-<img alt="Version Number" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffroststarinteractive%2Fhermes%2Frefs%2Fheads%2Fmain%2Fpesde.toml&query=%24.version&label=version">
-
-<img style="padding-top: 5px" alt="GitHub Downloads" src="https://img.shields.io/github/downloads/froststarinteractive/hermes/total">
+<div style="display:flex; flex-direction: row; justify-content: center; align-items: center;">
+<br>
+<img alt="Version Number" src="https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Ffroststarinteractive%2Fhermes%2Frefs%2Fheads%2Fmain%2Fpesde.toml&query=%24.version&label=version"/>
+</div>
 
 </div>
 
@@ -112,3 +113,10 @@ Lastly, to start Hermes use:
 ```luau
 Hermes:Fly()
 ```
+
+#### Roadmap
+
+- [🚧] **Wally Release** – Package manager support for painless dependency management.
+- [🤔] **Animation System** – Simplified helpers for playing and managing animations.
+- [🤔] **Data Handling** – Easy and reliable persistent data management.
+- [🤔] **Sound Management** – Simple player for sounds.

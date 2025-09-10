@@ -7,18 +7,18 @@ local networking = {}
 
 export type networking = typeof(networking)
 
-type RemoteType = "RemoteEvent" | "RemoteFunction"
+type RemoteType = "RemoteEvent" | "RemoteFunction" | "UnreliableRemoteEvent"
 
 -- Client: Waits for remote with name to be added
 -- Server: Creates the remote with specified name, or returns it if it exists
-local function getRemote(name: string, type: RemoteType): RemoteEvent | RemoteFunction
+local function getRemote(name: string, type: RemoteType): RemoteEvent | RemoteFunction | UnreliableRemoteEvent
 	if script:FindFirstChild(name) then
 		return script:FindFirstChild(name)
 	end
 
 	if isClient then
 		task.spawn(function()
-			local remote = script:WaitForChild(name)
+			local remote = script:WaitForChild(name, 5)
 			return remote
 		end)
 	end
@@ -30,8 +30,15 @@ local function getRemote(name: string, type: RemoteType): RemoteEvent | RemoteFu
 		remote.Parent = script
 
 		return remote
-	else
+	elseif type == "RemoteFunction" then
 		local remote = Instance.new("RemoteFunction")
+		remote.Name = name
+
+		remote.Parent = script
+
+		return remote
+	else
+		local remote = Instance.new("UnreliableRemoteEvent")
 		remote.Name = name
 
 		remote.Parent = script
@@ -104,10 +111,77 @@ function networking.ListenToTell(
 	end
 end
 
+-- Listens to when the client/server ask the server/client something. Returns a cleanup function.
+function networking.ListenToAsk(_self: networking, name: string, callback: (Player | any, any) -> ()): () -> ()
+	local remote = getRemote(name, "RemoteFunction") :: RemoteFunction
+
+	if isClient then
+		remote.OnClientInvoke = callback
+
+		return function()
+			remote.OnClientInvoke = nil
+		end
+	else
+		remote.OnServerInvoke = callback
+
+		return function()
+			remote.OnClientInvoke = nil
+		end
+	end
+end
+
+--[[ UNRELIABLE REMOTES ]]
+
+--[[
+    Tells the server/client to do something, but with unreliable remote events.
+
+    name -> name of the remote
+    playerOrAny -> if on server, you have to specify the player you want to fire the remote to, if not a player, fires all clients.
+    ... -> anything except a function due to Roblox's restrictions.
+]]
+function networking.TellUnreliably(_self: networking, name: string, playerOrAny: Player | any, ...: any)
+	local remote = getRemote(name, "UnreliableRemoteEvent") :: UnreliableRemoteEvent
+
+	if isClient then
+		remote:FireServer(playerOrAny, ...)
+	else
+		if typeof(playerOrAny) == "Player" then
+			remote:FireClient(playerOrAny, ...)
+		else
+			remote:FireAllClients(playerOrAny, ...)
+		end
+	end
+end
+
+-- Listens to when the client/server tells the server/client to do something unreliable. Returns an RBXScriptConnection
+function networking.ListenToUnreliableTell(
+	_self: networking,
+	name: string,
+	callback: (Player | any, any) -> ()
+): RBXScriptConnection
+	local remote = getRemote(name, "UnreliableRemoteEvent") :: UnreliableRemoteEvent
+
+	if isClient then
+		return remote.OnClientEvent:Connect(callback)
+	else
+		return remote.OnServerEvent:Connect(callback)
+	end
+end
+
 --[[ WAITING FOR REMOTES ]]
 
 function networking.Wait(_self: networking, name: string)
 	local remote = getRemote(name, "RemoteEvent") :: RemoteEvent
+
+	if isClient then
+		remote.OnClientEvent:Wait()
+	else
+		remote.OnServerEvent:Wait()
+	end
+end
+
+function networking.WaitUnreliably(_self: networking, name: string)
+	local remote = getRemote(name, "UnreliableRemoteEvent") :: UnreliableRemoteEvent
 
 	if isClient then
 		remote.OnClientEvent:Wait()

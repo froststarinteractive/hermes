@@ -16,8 +16,6 @@
 
     This is what we will have in the future:
 
-    - Networking
-    - Components
     - Wally release (probably AFTER networking. I just really like pesde right now lol)
     
 
@@ -26,15 +24,20 @@
     - Easy data handling
     - Animations
 
-    Some inspiration from prvdmwrong v0.1.
-
+    Credit:
+    - inspiration from prvdmwrong v0.1.
+    - signal implementation by Quenty
 ]]
 
 local loader = require("@self/loader")
 local networking = require("@self/networking")
+local modding = require("@self/modding")
 local utils = require("@self/utils")
 
-export type Hermes = loader.loader & networking.networking
+export type Hermes = loader.loader & networking.networking & modding.modding
 export type Provider = loader.Provider
-
-return utils.joinTables(loader, networking) :: Hermes
+return utils.joinTables(loader, networking, modding, {
+	utils = {
+		signal = require("@self/utils/signal"),
+	},
+}) :: Hermes

@@ -14,14 +14,18 @@ hero:
       link: /getting-started
     - theme: alt
       text: API
-      link: /api/server/functions/get-service.md
+      link: /api/loader
 
 features:
-  - title: Lightweight
-    details: extremely lightweight, only including things we know you will need.
-  - title: Easy Communication
-    details: includes packages that most devs need, without being bloated.
-  - title: By creators, for creators
-    details: was built with the purpose of being the core of Froststar Interactive's games.
+  - title: Lightweight Module Loader
+    details: Cleanly organize and require modules without boilerplate.
+  - title: Networking Layer
+    details: Simple Ask / Tell API for RemoteEvents, RemoteFunctions, and Unreliable remotes.
+  - title: Component System
+    details: Attach behaviors to tagged instances with lifecycle methods (Construct, Start, Destroy, Heartbeat).
+  - title: Modding Support
+    details: Extend Hermes with custom mods that seamlessly merge into the main API.
+  - title: Clean API
+    details: Intuitive, Roblox-style methods (ListenToTell, TellUnreliably, JoinWithMods)
 ---
 
