@@ -86,7 +86,7 @@ function loader.Fly(self: loader)
 
 		assert(prov.Name,`[Hermes] Provider from module "{module.Name}" does not have a 'Name' index!`)
 		-- or
-		-- if not prov.Name then warn(`[Hermes] Provider from module "{Module.Name}" does not have a 'Name' index, setting to Module name) prov.Name = module.Name end
+		-- if not prov.Name then warn(`[Hermes] Provider from module "{Module.Name}" does not have a 'Name' index, setting to Module name`) prov.Name = module.Name end
 
 		if self._providers[prov.Name] then
 			warn("There is already a provider with the same name! Provider names MUST be unique.")
