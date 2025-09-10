@@ -21,8 +21,6 @@ Hermes's core includes:
 
 ### Pesde
 
-Hermes only supports pesde at the moment, but we are planning to make a wally release in the future.
-
 ```cmd
 pesde add hermes/core
 ```
@@ -31,6 +29,18 @@ Then, run:
 
 ```cmd
 pesde i
+```
+
+### Wally
+
+```toml
+hermes = "froststarinteractive/hermescore@0.2.0"
+```
+
+Then, run:
+
+```cmd
+wally install
 ```
 
 ## Setting up your project
@@ -116,7 +126,6 @@ Hermes:Fly()
 
 #### Roadmap
 
-- [🚧] **Wally Release** – Package manager support for painless dependency management.
 - [🤔] **Animation System** – Simplified helpers for playing and managing animations.
 - [🤔] **Data Handling** – Easy and reliable persistent data management.
 - [🤔] **Sound Management** – Simple player for sounds.

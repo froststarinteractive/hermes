@@ -1,0 +1,28 @@
+[package]
+name = "froststarinteractive/hermescore"
+version = "0.2.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+exclude = [
+    "node_modules",
+    "lune_packages",
+    "luau_packages",
+    "docs",
+    ".vscode",
+    "assets",
+    ".pesde",
+    ".github",
+    ".gitignore",
+    "hermes.rbxm",
+    "package-lock.json",
+    "pesde.lock",
+    "sourcemap.json"
+]
+
+license = "MIT"
+
+homepage = "https://hermes.luau.page/"
+repository = "https://github.com/froststarinteractive/hermes"
+
+[dependencies]
